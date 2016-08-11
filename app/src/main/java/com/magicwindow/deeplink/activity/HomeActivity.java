@@ -17,7 +17,6 @@ import android.os.Bundle;
 
 public class HomeActivity extends ListActivity {
 
-	ListView mListView;
 
 	public static final String[] options = { "普通样式", "自定义魔窗样式", "其他样式", "自定义事件" };
 
