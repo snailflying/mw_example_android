@@ -11,6 +11,7 @@ import com.zxinsight.MagicWindowSDK;
 import com.zxinsight.magicwindow.base.BaseActivity;
 import com.zxinsight.mlink.MLinkCallback;
 import com.zxinsight.mlink.MLinkIntentBuilder;
+import com.zxinsight.mlink.YYBCallback;
 
 import java.util.Map;
 
@@ -30,8 +31,17 @@ public class SplashActivity extends BaseActivity {
             //跳转后结束当前activity
             finish();
         } else {
-            //跳转到首页
+            //todo: 应用宝跳转有两个方式,方式①
+            MLink.getInstance(this).checkYYB();
             gotoHomeActivity();
+
+            //todo: 应用宝跳转有两个方式,方式②
+//            MLink.getInstance(this).checkYYB(this, new YYBCallback() {
+//                @Override
+//                public void onFailed(Context context) {
+//                    gotoHomeActivity();
+//                }
+//            });
         }
         //跳转入口 end
     }
@@ -48,18 +58,18 @@ public class SplashActivity extends BaseActivity {
         // MainActivity的@MLinkDefaultRouter
         //SecondActivity的@MLinkRouter(keys = "second")，其中second为mLink的key
 //        MLink.getInstance(this).registerWithAnnotation(this);
-        register();
+        register(this);
     }
 
-    private static void register() {
-        MagicWindowSDK.getMLink().registerDefault(new MLinkCallback() {
+    private static void register(Context context) {
+        MLink.getInstance(context).registerDefault(new MLinkCallback() {
             @Override
             public void execute(Map<String, String> map, Uri uri, Context context) {
                 MLinkIntentBuilder.buildIntent(context, MainActivity.class);
 
             }
         });
-        MagicWindowSDK.getMLink().register("second", new MLinkCallback() {
+        MLink.getInstance(context).register("second", new MLinkCallback() {
             @Override
             public void execute(Map<String, String> map, Uri uri, Context context) {
                 MLinkIntentBuilder.buildIntent(context, SecondActivity.class);
