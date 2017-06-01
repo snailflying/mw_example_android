@@ -16,7 +16,7 @@ public class Constant {
     public static final String MW_CUSTOM_STYLE02 = "2ASO7UY3";    //第5个魔窗位
     public static final String MW_OTHER_STYLE01 = "EZU5B0XM";    //第6个魔窗位
     public static final String MW_OTHER_STYLE02 = "LZCCY5U7";    //第7个魔窗位
-    public static final String MW_DIALOG = "GN1K1ZM3";    // 弹框魔窗位
+    public static final String MW_AD = "GN1K1ZM3";    // 弹框魔窗位
 
 
     public static final String CUSTOM_COME_TO_BUY_ID = "IGSYZYS3";    //进入购买页面的id，需要在后台配置获取

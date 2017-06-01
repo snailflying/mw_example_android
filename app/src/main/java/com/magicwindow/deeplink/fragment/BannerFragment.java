@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.config.Constant;
-import com.zxinsight.MWImageView;
+import cn.magicwindow.MWImageView;
 
 public final class BannerFragment extends Fragment {
 

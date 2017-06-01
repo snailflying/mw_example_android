@@ -5,11 +5,9 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.zxinsight.MWConfiguration;
-import com.zxinsight.MagicWindowSDK;
-import com.zxinsight.TrackAgent;
+import cn.magicwindow.TrackAgent;
 
-import com.zxinsight.analytics.domain.UserProfile;
+import cn.magicwindow.analytics.domain.UserProfile;
 
 //import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -18,7 +16,7 @@ import android.os.Bundle;
 public class HomeActivity extends ListActivity {
 
 
-	public static final String[] options = { "普通样式", "自定义魔窗样式", "其他样式", "自定义事件" };
+	public static final String[] options = { "普通样式", "自定义魔窗样式", "广告样式", "自定义事件" };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +76,7 @@ public class HomeActivity extends ListActivity {
 			intent = new Intent(this, CustomStyleActivity.class);
 			break;
 		case 2:
-			intent = new Intent(this, OtherStyleActivity.class);
+			intent = new Intent(this, AdStyleActivity.class);
 			break;
 		case 3:
 			intent = new Intent(this, CustomEventActivity.class);

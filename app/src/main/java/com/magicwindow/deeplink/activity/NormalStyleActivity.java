@@ -16,16 +16,19 @@ import com.magicwindow.deeplink.base.BaseActivity;
 import com.magicwindow.deeplink.config.Constant;
 import com.magicwindow.deeplink.fragment.BannerFragment;
 import com.magicwindow.deeplink.view.CircleIndicator;
-import com.zxinsight.MWImageView;
-import com.zxinsight.MarketingHelper;
 
 import java.util.HashMap;
+
+import cn.magicwindow.ClickParamsBuilder;
+import cn.magicwindow.MWAPI;
+import cn.magicwindow.MWAPIFactory;
+import cn.magicwindow.MWImageView;
 
 public class NormalStyleActivity extends BaseActivity {
 
     private ViewPager pager;
 
-    private MarketingHelper marketingHelper;
+    private MWAPI mwapi;
 
     private MWImageView bottomImg;
 
@@ -37,7 +40,7 @@ public class NormalStyleActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(com.magicwindow.deeplink.R.layout.activity_normal_style);
 
-        marketingHelper = MarketingHelper.currentMarketing(this);
+        mwapi = MWAPIFactory.createAPI(this);
         receiver = new MWBroadCastReceiver();
         IntentFilter filter = new IntentFilter();
         filter.addAction("com.magicwindow.marketing.update.MW_MESSAGE");
@@ -47,7 +50,7 @@ public class NormalStyleActivity extends BaseActivity {
 
         pager = (ViewPager) findViewById(com.magicwindow.deeplink.R.id.pager);
         //如果魔窗未开启，则隐藏第二个魔窗位 isActive()方法用来判断魔窗位是否开启
-        if (marketingHelper.isActive(Constant.MW_NORMAL_STYLE02)) {
+        if (mwapi.isActive(Constant.MW_NORMAL_STYLE02)) {
             pager.setAdapter(new FragmentAdapter(getSupportFragmentManager(), 3));
         } else {
             pager.setAdapter(new FragmentAdapter(getSupportFragmentManager(), 2));
@@ -71,14 +74,18 @@ public class NormalStyleActivity extends BaseActivity {
 
         /**
          *
-         * TODO: 演示带mLink动态参数的bind
-         * 如果此魔窗位需要通过mLink跳转到其他APP的具体页面，并且需要传动态参数。
-         * 则用bindEventWithMLink()。
+         * TODO: 演示带mLink等动态参数的bind
+         * 如果此魔窗位需要通过mLink跳转到其他APP的具体页面，并且需要传动态参数等需要传递值时用bindEventWithParams()。
+         * @ClickParamsBuilder接口说明:
+         * @mLinkParam :魔窗位需要传递的mLink值
+         * @landingPageParam:App未安装，跳转到的HTML页面Url值
+         * @AbaCallbackMLinkKey: ABA跳转时回跳的uri
+         * @listener:魔窗位更改点击事件时调用
          */
         HashMap<String, String> param = new HashMap<String, String>();
         param.put("key", "value");
         MWImageView img_3 = (MWImageView) findViewById(R.id.img_3);
-        img_3.bindEventWithMLink(Constant.MW_NORMAL_STYLE03, param, param);
+        img_3.bindEventWithParams(new ClickParamsBuilder(this, Constant.MW_NORMAL_STYLE03).mLinkParam(param).build());
 
 
         //TODO: 如果魔窗位只需要显示一张图片，推荐此方式，最简单
@@ -86,6 +93,14 @@ public class NormalStyleActivity extends BaseActivity {
         bottomImg.bindEvent(Constant.MW_NORMAL_STYLE03);
         //end
 
+    }
+
+    @Override
+    public void onDestroy() {
+        if (receiver != null) {
+            unregisterReceiver(receiver);
+        }
+        super.onDestroy();
     }
 
     public class FragmentAdapter extends FragmentPagerAdapter {
@@ -106,14 +121,6 @@ public class NormalStyleActivity extends BaseActivity {
         public int getCount() {
             return mCount;
         }
-    }
-
-    @Override
-    public void onDestroy() {
-        if (receiver != null) {
-            unregisterReceiver(receiver);
-        }
-        super.onDestroy();
     }
 
     public class MWBroadCastReceiver extends BroadcastReceiver {

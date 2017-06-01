@@ -11,14 +11,14 @@ import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.base.BaseActivity;
 import com.magicwindow.deeplink.config.Constant;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.zxinsight.MarketingHelper;
-import com.zxinsight.RenderListener;
-import com.zxinsight.RenderParam;
-import com.zxinsight.RenderParamBuilder;
+
+import cn.magicwindow.MWAPI;
+import cn.magicwindow.MWAPIFactory;
+import cn.magicwindow.MarketingHelper;
 
 public class CustomStyleActivity extends BaseActivity {
 
-    private MarketingHelper marketingHelper;
+    private MWAPI marketingHelper;
 
     private Context mContext;
 
@@ -44,7 +44,7 @@ public class CustomStyleActivity extends BaseActivity {
         mContext = this;
         setContentView(R.layout.activity_custom_style);
 
-        marketingHelper = MarketingHelper.currentMarketing(this);
+        marketingHelper = MWAPIFactory.createAPI(this);
 
         initView();
 
@@ -74,35 +74,6 @@ public class CustomStyleActivity extends BaseActivity {
 
         // end
 
-        // TODO: 自定义魔窗位方式2 renderMarketing接口在2.3版本开放
-
-        parent = (RelativeLayout) findViewById(R.id.custom_style_layout_2);
-        customImg2 = (ImageView) findViewById(R.id.img2);
-        customTitle2 = (TextView) findViewById(R.id.title2);
-        customDescription2 = (TextView) findViewById(R.id.description2);
-        RenderListener listener = new RenderListener() {
-            @Override
-            public void setTitle(String s) {
-                customTitle2.setText(s);
-            }
-
-            @Override
-            public void setDescription(String s) {
-                customDescription2.setText(s);
-            }
-
-            @Override
-            public void setImage(String s) {
-                ImageLoader.getInstance().displayImage(s, customImg2);
-            }
-        };
-        RenderParam renderParam = new RenderParamBuilder()
-                .windowKey("windowKey")
-                .parent(parent)
-                .renderListener(listener)
-                .build();
-        marketingHelper.renderMarketingWithMLink(renderParam);
-        //end
 
 
     }

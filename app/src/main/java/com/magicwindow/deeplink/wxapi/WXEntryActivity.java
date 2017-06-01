@@ -1,14 +1,16 @@
 package com.magicwindow.deeplink.wxapi;
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
-import com.zxinsight.share.activity.MWWXHandlerActivity;
+
+import cn.magicwindow.marketing.share.activity.MWWXHandlerActivity;
+//import cn.magicwindow.share.activity.MWWXHandlerActivity;
 
 /**
  * 微信分享activity
  * @author youtui
  * @since 14/5/4 
  */
-public class WXEntryActivity extends MWWXHandlerActivity{
+public class WXEntryActivity extends MWWXHandlerActivity {
 
 
 	@Override

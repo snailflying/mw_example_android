@@ -23,8 +23,8 @@
 -libraryjars libs
 
 -keep class com.tencent.mm.sdk.** {*;}
--keep class com.zxinsight.** {*;}
--dontwarn com.zxinsight.**
+-keep class cn.magicwindow.** {*;}
+-dontwarn cn.magicwindow.**
 
 -dontskipnonpubliclibraryclassmembers
 

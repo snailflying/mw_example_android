@@ -2,7 +2,7 @@ package com.magicwindow.deeplink.base;
 
 import android.support.v4.app.Fragment;
 
-import com.zxinsight.TrackAgent;
+import cn.magicwindow.TrackAgent;
 
 public abstract class BaseFragment extends Fragment {
 

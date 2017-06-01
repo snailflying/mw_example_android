@@ -2,7 +2,7 @@ package com.zxinsight.magicwindow.base;
 
 import android.app.Activity;
 
-import com.zxinsight.Session;
+import cn.magicwindow.Session;
 
 /**
  * User: Aaron.Liu

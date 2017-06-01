@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 import com.zxinsight.magicwindow.base.BaseActivity;
-import com.zxinsight.mlink.annotation.MLinkRouter;
+import cn.magicwindow.mlink.annotation.MLinkRouter;
 
 //@MLinkRouter(keys = "second")//second为mLink的key
 public class SecondActivity extends BaseActivity {

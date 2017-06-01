@@ -3,7 +3,6 @@ package com.magicwindow.deeplink.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;

@@ -6,9 +6,9 @@ import android.view.MotionEvent;
 
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.base.BaseActivity;
-import com.zxinsight.MWConfiguration;
-import com.zxinsight.MagicWindowSDK;
-import com.zxinsight.TrackAgent;
+import cn.magicwindow.MWConfiguration;
+import cn.magicwindow.MagicWindowSDK;
+import cn.magicwindow.TrackAgent;
 
 /**
  * Created by aaron on 16/4/10.

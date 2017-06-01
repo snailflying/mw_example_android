@@ -10,8 +10,8 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
-import com.zxinsight.MWConfiguration;
-import com.zxinsight.MagicWindowSDK;
+import cn.magicwindow.MWConfiguration;
+import cn.magicwindow.MagicWindowSDK;
 
 /**
  * Created by aaron on 15/7/4.

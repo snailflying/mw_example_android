@@ -13,87 +13,89 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.magicwindow.deeplink.util.Util;
-import com.zxinsight.MWImageView;
-import com.zxinsight.MarketingHelper;
+
+import cn.magicwindow.MWAPIFactory;
+import cn.magicwindow.MWImageView;
 
 
 /**
  * Created by aaron on 14/12/25.
  */
 public class MWDialog extends Dialog implements View.OnClickListener {
-	protected Context mContext;
-	private String mWindowKey;
-	public MWDialog(Context context, String windowKey) {
-		super(context);
-		this.mContext = context;
+    protected Context mContext;
+    private String mWindowKey;
 
-		this.mWindowKey = windowKey;
-		showOrDismiss();
-	}
+    public MWDialog(Context context, String windowKey) {
+        super(context);
+        this.mContext = context;
 
-	public void showOrDismiss() {
-		// 如果魔窗关闭，则不显示此dialog
-		if (!isActive(mContext)||this.isShowing()) {
-			this.dismiss();
-		} else {
-			show();
-		}
-	}
+        this.mWindowKey = windowKey;
+        showOrDismiss();
+    }
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+    public void showOrDismiss() {
+        // 如果魔窗关闭，则不显示此dialog
+        if (!isActive(mContext) || this.isShowing()) {
+            this.dismiss();
+        } else {
+            show();
+        }
+    }
 
-		requestWindowFeature(Window.FEATURE_NO_TITLE);// 不显示title
-		Window window = this.getWindow();
-		window.setGravity(Gravity.CENTER);// 底部显示
-		window.setBackgroundDrawable(new BitmapDrawable());// 去掉黑色背景
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-		setContentView(initView());
-	}
+        requestWindowFeature(Window.FEATURE_NO_TITLE);// 不显示title
+        Window window = this.getWindow();
+        window.setGravity(Gravity.CENTER);// 底部显示
+        window.setBackgroundDrawable(new BitmapDrawable());// 去掉黑色背景
 
-	private LinearLayout initView() {
-		LinearLayout mainLinear = new LinearLayout(mContext);
-		mainLinear.setOrientation(LinearLayout.VERTICAL);
+        setContentView(initView());
+    }
 
-		LinearLayout.LayoutParams mainLayoutParams = new LinearLayout.LayoutParams(
-				LinearLayout.LayoutParams.MATCH_PARENT,
-				ViewGroup.LayoutParams.WRAP_CONTENT);
-		mainLayoutParams.setMargins(0, 25, 0, 25);
+    private LinearLayout initView() {
+        LinearLayout mainLinear = new LinearLayout(mContext);
+        mainLinear.setOrientation(LinearLayout.VERTICAL);
 
-		mainLinear.setLayoutParams(mainLayoutParams);
-		MWImageView imageView = new MWImageView(mContext);
-		imageView.bindEvent(mWindowKey);
-		imageView.setClickable(false);
+        LinearLayout.LayoutParams mainLayoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+        mainLayoutParams.setMargins(0, 25, 0, 25);
 
-		mainLinear.setOnClickListener(this);
-		mainLinear.addView(imageView);
-		return mainLinear;
-	}
+        mainLinear.setLayoutParams(mainLayoutParams);
+        MWImageView imageView = new MWImageView(mContext);
+        imageView.bindEvent(mWindowKey);
+        imageView.setClickable(false);
 
-	@Override
-	public void onClick(View view) {
-		if (Util.isNetworkEnabled(mContext)) {
-			MarketingHelper.currentMarketing(mContext).click(mContext,
-					mWindowKey);
+        mainLinear.setOnClickListener(this);
+        mainLinear.addView(imageView);
+        return mainLinear;
+    }
 
-			dismiss();
-		} else {
-			Toast.makeText(mContext, "无网络连接，请查看您的网络情况", Toast.LENGTH_SHORT)
-					.show();
-		}
-	}
+    @Override
+    public void onClick(View view) {
+        if (Util.isNetworkEnabled(mContext)) {
+            MWAPIFactory.createAPI(mContext).click(mContext,
+                    mWindowKey);
 
-	private boolean isActive(Context context) {
+            dismiss();
+        } else {
+            Toast.makeText(mContext, "无网络连接，请查看您的网络情况", Toast.LENGTH_SHORT)
+                    .show();
+        }
+    }
 
-		if (TextUtils.isEmpty(mWindowKey)) {
-			return false;
-		}
+    private boolean isActive(Context context) {
 
-		if (MarketingHelper.currentMarketing(context).isActive(mWindowKey)) {
-			return true;
-		}
+        if (TextUtils.isEmpty(mWindowKey)) {
+            return false;
+        }
 
-		return false;
-	}
+        if (MWAPIFactory.createAPI(context).isActive(mWindowKey)) {
+            return true;
+        }
+
+        return false;
+    }
 }

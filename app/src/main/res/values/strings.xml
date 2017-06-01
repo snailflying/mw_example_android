@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MagicWindowSDKExample</string>
-     <string name="ok">确定</string>
+    <string name="ok">确定</string>
 
 
     <string name="home_title">首页</string>
@@ -20,7 +20,8 @@
     <string name="custom_style_description">获取活动内容后会替换此内容</string>
 
 
-    <string name="dialog_page">进入此页面，如果dialog内定义的魔窗位开启，则会首先弹出dialog</string>
+    <string name="ad_title">广告标题</string>
+    <string name="ad_desc">广告描述</string>
 
     <string name="share_by_click">点击直接分享</string>
 
@@ -29,7 +30,6 @@
     <string name="come_in_buy_page">进入购买页面</string>
     <string name="click_to_buy">点击购买</string>
     <string name="buy_done">购买完成</string>
-
 
 
 </resources>

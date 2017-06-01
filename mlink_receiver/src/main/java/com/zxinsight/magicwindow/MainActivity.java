@@ -3,7 +3,7 @@ package com.zxinsight.magicwindow;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.zxinsight.MLink;
+import cn.magicwindow.MLink;
 import com.zxinsight.magicwindow.base.BaseActivity;
 
 //@MLinkDefaultRouter

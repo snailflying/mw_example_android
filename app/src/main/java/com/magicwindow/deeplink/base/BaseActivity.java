@@ -2,8 +2,8 @@ package com.magicwindow.deeplink.base;
 
 import android.support.v4.app.FragmentActivity;
 
-import com.zxinsight.Session;
-import com.zxinsight.TrackAgent;
+import cn.magicwindow.Session;
+import cn.magicwindow.TrackAgent;
 
 /**
  * User: Aaron.Liu

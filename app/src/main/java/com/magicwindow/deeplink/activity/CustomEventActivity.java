@@ -8,7 +8,7 @@ import android.widget.Toast;
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.base.BaseActivity;
 import com.magicwindow.deeplink.config.Constant;
-import com.zxinsight.TrackAgent;
+import cn.magicwindow.TrackAgent;
 
 import java.util.HashMap;
 import java.util.Map;

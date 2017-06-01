@@ -50,7 +50,7 @@
 
         <!-- 总的activity，必须注册！！！ -->
         <activity
-            android:name="com.zxinsight.common.base.MWActivity"
+            android:name="cn.magicwindow.common.base.MWActivity"
             android:configChanges="orientation|keyboardHidden|screenSize|navigation"
             android:exported="true" />
 
@@ -63,7 +63,6 @@
             android:name="MW_CHANNEL"
             android:value="应用宝" />
 
-        <activity android:name="com.magicwindow.deeplink.activity.CookieActivity"></activity>
     </application>
 
 </manifest>

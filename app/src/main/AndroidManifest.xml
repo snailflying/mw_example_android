@@ -36,20 +36,16 @@
 
         </activity>
         <activity
-            android:name="com.magicwindow.deeplink.activity.NormalStyleActivity"
-            android:configChanges="orientation|keyboardHidden"></activity>
+            android:name="com.magicwindow.deeplink.activity.NormalStyleActivity"/>
         <activity
-            android:name="com.magicwindow.deeplink.activity.CustomStyleActivity"
-            android:configChanges="orientation|keyboardHidden"></activity>
+            android:name="com.magicwindow.deeplink.activity.CustomStyleActivity" />
         <activity
-            android:name="com.magicwindow.deeplink.activity.OtherStyleActivity"
-            android:configChanges="orientation|keyboardHidden"></activity>
+            android:name="com.magicwindow.deeplink.activity.AdStyleActivity"/>
         <activity
-            android:name="com.magicwindow.deeplink.activity.CustomEventActivity"
-            android:configChanges="orientation|keyboardHidden"></activity>
+            android:name="com.magicwindow.deeplink.activity.CustomEventActivity"/>
         <!-- 主activity，必加 -->
         <activity
-            android:name="com.zxinsight.common.base.MWActivity"
+            android:name="cn.magicwindow.common.base.MWActivity"
             android:configChanges="orientation|keyboardHidden|screenSize|navigation"
             android:exported="true">
             <intent-filter>
