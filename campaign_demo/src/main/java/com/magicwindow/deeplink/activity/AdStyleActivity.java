@@ -9,7 +9,6 @@ import android.widget.TextView;
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.base.BaseActivity;
 import com.magicwindow.deeplink.config.Constant;
-import com.magicwindow.deeplink.dialog.MWDialog;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import cn.magicwindow.AdManager;

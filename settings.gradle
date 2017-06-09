@@ -1,1 +1,1 @@
-include ':app', ':mlink_receiver'
+include ':campaign_demo', ':mlink_demo'
