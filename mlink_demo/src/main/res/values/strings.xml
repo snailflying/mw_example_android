@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">MLink Receiver</string>
+    <string name="desc">通过短链从外部(比如浏览器)可以直接打开此页。并且可以通过query传递动态参数.短链举例(长按链接复制):</string>
+    <string name="url">https://a.mlinks.cc/Ack1?id=12345&amp;name=ABC</string>
+    <string name="btn_to_second">点击进入第二页</string>
 </resources>

@@ -3,18 +3,23 @@ package com.zxinsight.magicwindow;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zxinsight.magicwindow.base.BaseActivity;
-import cn.magicwindow.mlink.annotation.MLinkRouter;
 
 //@MLinkRouter(keys = "second")//second为mLink的key
 public class SecondActivity extends BaseActivity {
+
+    TextView id,name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+
+        id = (TextView) findViewById(R.id.id);
+        name = (TextView) findViewById(R.id.name);
 
         showDynamicParam();
     }
@@ -24,9 +29,11 @@ public class SecondActivity extends BaseActivity {
     private void showDynamicParam() {
         Intent intent = getIntent();
         if (intent != null) {
+            if (!TextUtils.isEmpty(intent.getStringExtra("id"))) {
+                id.setText(intent.getStringExtra("id"));
+            }
             if (!TextUtils.isEmpty(intent.getStringExtra("name"))) {
-                String name = "动态参数为：" + intent.getStringExtra("name");
-                Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
+                name.setText(intent.getStringExtra("name"));
             }
 
         }

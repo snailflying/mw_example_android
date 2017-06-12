@@ -30,7 +30,11 @@ public class SplashActivity extends BaseActivity {
         MLinkAPIFactory.createAPI(context).register("second", new MLinkCallback() {
             @Override
             public void execute(Map<String, String> map, Uri uri, Context context) {
-                MLinkIntentBuilder.buildIntent(context, SecondActivity.class);
+                Intent intent = new Intent(context, SecondActivity.class);
+                intent.putExtra("id",map.get("id"));
+                intent.putExtra("name",map.get("name"));
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                context.startActivity(intent);
             }
         });
     }
