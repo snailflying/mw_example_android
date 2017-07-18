@@ -47,7 +47,7 @@ public class FeedAdListViewActivity extends BaseActivity {
         listAdapter.setData(arrayList);
 
 
-        AdManager.requestFeedAdView(Constant.MW_AD,new FeedAdListener() {
+        AdManager.requestFeedAd(Constant.MW_AD,new FeedAdListener() {
             @Override
             public void success(List<FeedAdViewPojo> pojo) {
                 listAdapter.notifyDataSetChanged();

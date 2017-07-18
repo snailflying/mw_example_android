@@ -46,7 +46,7 @@ public class FeedAdRecyclerViewActivity extends Activity {
         mRecyclerView.setAdapter(mAdapter);
 
 
-        AdManager.requestFeedAdView(Constant.MW_AD, new FeedAdListener() {
+        AdManager.requestFeedAd(Constant.MW_AD, new FeedAdListener() {
             @Override
             public void success(List<FeedAdViewPojo> pojo) {
                 mAdapter.notifyDataSetChanged();
