@@ -39,6 +39,8 @@
         <activity android:name="com.magicwindow.deeplink.activity.CustomStyleActivity" />
         <activity android:name="com.magicwindow.deeplink.activity.AdStyleActivity" />
         <activity android:name="com.magicwindow.deeplink.activity.CustomEventActivity" />
+        <activity android:name="com.magicwindow.deeplink.activity.FeedAdListViewActivity" />
+        <activity android:name="com.magicwindow.deeplink.activity.FeedAdRecyclerViewActivity" />
         <!-- 主activity，必加 -->
         <activity
             android:name="cn.magicwindow.common.base.MWActivity"

@@ -14,8 +14,8 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import cn.magicwindow.AdManager;
 import cn.magicwindow.MWAPI;
 import cn.magicwindow.MWAPIFactory;
-import cn.magicwindow.ad.domain.AdRenderListener;
-import cn.magicwindow.ad.domain.RenderAd;
+import cn.magicwindow.advertisement.domain.AdRenderListener;
+import cn.magicwindow.advertisement.domain.RenderAd;
 
 public class AdStyleActivity extends BaseActivity {
 
@@ -45,7 +45,7 @@ public class AdStyleActivity extends BaseActivity {
         title = (TextView) findViewById(R.id.title);
         desc = (TextView) findViewById(R.id.desc);
 
-        AdManager.display(this, Constant.MW_AD, new AdRenderListener() {
+        AdManager.display(Constant.MW_AD, this, new AdRenderListener() {
             @Override
             public void success(RenderAd ad) {
 
@@ -66,7 +66,7 @@ public class AdStyleActivity extends BaseActivity {
         parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AdManager.click(v, Constant.MW_AD);
+                AdManager.click(Constant.MW_AD, v);
             }
         });
 
