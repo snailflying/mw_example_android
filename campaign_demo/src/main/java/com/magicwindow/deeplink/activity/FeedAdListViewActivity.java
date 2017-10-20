@@ -10,9 +10,7 @@ import com.magicwindow.deeplink.config.Constant;
 import com.magicwindow.deeplink.domain.ListInfo;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import cn.magicwindow.AdManager;
 import cn.magicwindow.advertisement.domain.FeedAdListener;
@@ -47,7 +45,7 @@ public class FeedAdListViewActivity extends BaseActivity {
         listAdapter.setData(arrayList);
 
 
-        AdManager.requestFeedAd(Constant.MW_AD,new FeedAdListener() {
+        AdManager.requestFeedAd(Constant.MW_AD, new FeedAdListener() {
             @Override
             public void success(List<FeedAdViewPojo> pojo) {
                 listAdapter.notifyDataSetChanged();

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Content_Demo</string>
+    <string name="single_page">单页面</string>
+    <string name="multi_page">多页面</string>
+</resources>

@@ -14,6 +14,7 @@ import cn.magicwindow.MWConfiguration;
 import cn.magicwindow.MagicWindowSDK;
 import cn.magicwindow.mlink.MLinkCallback;
 import cn.magicwindow.mlink.MLinkIntentBuilder;
+import cn.magicwindow.mlink.YYBCallback;
 
 public class SplashActivity extends BaseActivity {
 
@@ -50,17 +51,17 @@ public class SplashActivity extends BaseActivity {
             //跳转后结束当前activity
             finish();
         } else {
-            //todo: 应用宝跳转有两个方式,方式①
-            MLinkAPIFactory.createAPI(this).checkYYB();
-            gotoHomeActivity();
+            MLinkAPIFactory.createAPI(this).checkYYB(this, new YYBCallback() {
+                @Override
+                public void onFailed(Context context) {
+                    gotoHomeActivity();
+                }
 
-            //todo: 应用宝跳转有两个方式,方式②
-//            MLinkAPIFactory.createAPI(this).checkYYB(this, new YYBCallback() {
-//                @Override
-//                public void onFailed(Context context) {
-//                    gotoHomeActivity();
-//                }
-//            });
+                @Override
+                public void onSuccess() {
+                    finish();
+                }
+            });
         }
         //跳转入口 end
     }

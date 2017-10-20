@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_single"
+        android:title="@string/single_page" />
+
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/ic_multi"
+        android:title="@string/multi_page" />
+
+</menu>
