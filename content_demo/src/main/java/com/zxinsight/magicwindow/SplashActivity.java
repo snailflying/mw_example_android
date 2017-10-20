@@ -28,6 +28,7 @@ public class SplashActivity extends Activity {
         setContentView(R.layout.activity_splash);
         //mw: 初始化魔窗
         initMw();
+        //回流入口
         if (getIntent().getData() != null) {
             MLinkAPIFactory.createAPI(this).router(this, getIntent().getData());
             //跳转后结束当前activity
@@ -51,9 +52,7 @@ public class SplashActivity extends Activity {
         // TODO:初始化魔窗，此函数在第一个activity或者application类内调用。
         MWConfiguration config = new MWConfiguration(this);
         config.setLogEnable(true)
-                .setPageTrackWithFragment(true)
-                .setSharePlatform(MWConfiguration.ORIGINAL)
-                .setMLinkOpen();
+                .setSharePlatform(MWConfiguration.ORIGINAL);
 
         MagicWindowSDK.initSDK(config);
         MLinkAPIFactory.createAPI(this).registerWithAnnotation(this);

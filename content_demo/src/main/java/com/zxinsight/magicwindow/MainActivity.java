@@ -53,7 +53,9 @@ public class MainActivity extends AppCompatActivity {
     private void initViewPager() {
         FragmentListViewPagerAdapter adapter = new FragmentListViewPagerAdapter(getSupportFragmentManager());
 
+        //单一频道页
         adapter.addFragment(MWContentApiFactory.getSinglePageFragment(Config.MW_SINGLE_PAGE));
+        //频道聚合页
         adapter.addFragment(MWContentApiFactory.getMultiPageFragment(Config.MW_MULTI_PAGE));
 
         viewPager = (ViewPager) findViewById(R.id.viewPager);
