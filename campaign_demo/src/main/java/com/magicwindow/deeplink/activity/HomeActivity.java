@@ -78,12 +78,12 @@ public class HomeActivity extends ListActivity {
             case AD:
                 intent = new Intent(this, AdStyleActivity.class);
                 break;
-            case AD_LIST:
-                intent = new Intent(this, FeedAdListViewActivity.class);
-                break;
-            case AD_RECYCLE:
-                intent = new Intent(this, FeedAdRecyclerViewActivity.class);
-                break;
+//            case AD_LIST:
+//                intent = new Intent(this, FeedAdListViewActivity.class);
+//                break;
+//            case AD_RECYCLE:
+//                intent = new Intent(this, FeedAdRecyclerViewActivity.class);
+//                break;
             case TRACK:
                 intent = new Intent(this, CustomEventActivity.class);
                 break;
